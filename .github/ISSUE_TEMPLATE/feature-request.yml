@@ -1,0 +1,94 @@
+---
+name: Feature Request
+description: 提出一个新的功能需求或改进想法
+title: "[FEATURE] 新功能 - "
+labels: ["feature", "待审", "知识库"]
+assignees: [kxrz123]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢提出新功能！请尽量详细填写，方便我们评估优先级并整理进 PRD。
+
+  - type: input
+    id: feature-title
+    attributes:
+      label: 功能标题
+      description: 用一句话概括这个新功能
+      placeholder: 示例：用户支持微信一键登录
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-story
+    attributes:
+      label: 用户故事（User Story）
+      description: 用标准格式描述
+      value: |
+        As a [用户角色]，
+        I want [具体功能]，
+        so that [达成什么目标/解决什么问题]。
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: 为什么需要这个功能？
+      description: 业务背景、用户痛点、竞品对比、数据支持等
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: 验收标准（Acceptance Criteria）
+      description: 功能完成的标准（建议用 checklist）
+      value: |
+        - [ ] 验收点1
+        - [ ] 验收点2
+        - [ ] ...
+      render: markdown
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 优先级
+      options:
+        - 高（必须本迭代）
+        - 中（下个迭代优先）
+        - 低（可排期后置）
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: related-prd
+    attributes:
+      label: 相关 PRD / Issue
+      description: 如果已有 PRD 或其他 Issue，请填写编号或链接（如 #123）
+      placeholder: #123 或 PRD 链接
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: 参考资料 / 附件
+      description: 拖拽上传竞品截图、设计稿、API 文档、用户反馈等
+
+  - type: textarea
+    id: extra-notes
+    attributes:
+      label: 额外说明 / 期望 LLM 输出
+      description: 告诉 LLM 如何整理这个 Feature（例如生成详细 PRD、验收测试用例等）
+      value: |
+        请基于以上信息生成完整的 PRD 片段（包含功能规格、非功能需求、验收标准等）
+      render: markdown
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: 确认事项
+      options:
+        - label: 我已搜索过仓库，没有重复的 Feature Request
+          required: true

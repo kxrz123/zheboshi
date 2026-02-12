@@ -1,0 +1,95 @@
+---
+name: PRD 整理模板
+description: 用于软件项目的产品需求文档（PRD）收集、整理和 LLM 辅助生成的标准模板
+title: "[PRD] 新需求 - "
+labels: ["PRD", "待审", "知识库"]
+assignees: [kxrz123]
+projects: []  # 如果有 GitHub Project 看板，可填如 "kxrz123/1" 或留空
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 欢迎使用 PRD 整理模板
+        请按以下结构填写，LLM 将基于此生成/优化完整 PRD。附件可拖拽上传（PDF/MD/图片/代码片段等）。
+
+  - type: input
+    id: demand-title
+    attributes:
+      label: 需求标题
+      description: 简洁描述这个需求的核心（如“用户登录支持微信一键登录”）
+      placeholder: 示例：支持多租户隔离
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: 背景/问题描述
+      description: 为什么需要这个需求？当前痛点是什么？业务场景？
+      placeholder: 示例：现有系统单租户模式，无法支持多个独立客户...
+    validations:
+      required: true
+
+  - type: textarea
+    id: functional-points
+    attributes:
+      label: 功能点列表
+      description: 用 - [ ] 列出具体功能点，支持 checklist 格式
+      value: |
+        - [ ] 功能点1
+        - [ ] 功能点2
+        - [ ] ...
+      render: markdown
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 优先级
+      description: 请评估紧急程度
+      options:
+        - 高（必须本迭代完成）
+        - 中（下个迭代优先）
+        - 低（可排期后置）
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: related-docs
+    attributes:
+      label: 相关文档/附件
+      description: 拖拽上传相关文件（需求草稿、竞品截图、API 文档、设计稿等），或贴链接
+      placeholder: 支持 PDF / MD / JPG / PNG 等
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected-llm-format
+    attributes:
+      label: 期望 LLM 输出格式 / 额外指令
+      description: 告诉 LLM 你希望它怎么整理（如结构、长度、重点关注点）
+      value: |
+        用标准 PRD 结构输出 Markdown 格式：
+        - 目标用户
+        - 问题与目标
+        - 解决方案
+        - 功能规格
+        - 非功能需求
+        - 验收标准
+        - 潜在风险
+      render: markdown
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: 确认事项
+      description: 请勾选确认
+      options:
+        - label: 我已检查没有重复的类似需求
+          required: true
+        - label: 此需求与当前项目目标对齐
+          required: false

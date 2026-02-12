@@ -1,0 +1,81 @@
+---
+name: Task
+description: 内部开发任务、重构、文档编写、测试等非 Bug/非 Feature 的工作项
+title: "[TASK] "
+labels: ["task", "待审"]
+assignees: [kxrz123]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        用于跟踪日常开发任务、文档、配置、重构等。
+
+  - type: input
+    id: task-title
+    attributes:
+      label: 任务标题
+      placeholder: 示例：重构用户认证模块
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 任务描述
+      description: 详细说明要做什么、为什么做
+    validations:
+      required: true
+
+  - type: textarea
+    id: sub-tasks
+    attributes:
+      label: 子任务清单
+      description: 用 checklist 分解
+      value: |
+        - [ ] 子任务1
+        - [ ] 子任务2
+        - [ ] 子任务3
+      render: markdown
+
+  - type: input
+    id: estimated-hours
+    attributes:
+      label: 预计工时（小时）
+      placeholder: 8 或 3-5
+
+  - type: input
+    id: due-date
+    attributes:
+      label: 期望完成日期
+      placeholder: YYYY-MM-DD
+
+  - type: textarea
+    id: related-prd-issue
+    attributes:
+      label: 关联 PRD / Issue
+      description: 如关联的 PRD 或其他 Issue 编号
+      placeholder: #123 或 PRD 链接
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 优先级
+      options:
+        - 高（紧急）
+        - 中
+        - 低
+      default: 1
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: 备注 / 依赖 / 风险
+      description: 任何额外信息、阻塞项、技术方案草稿等
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: 确认事项
+      options:
+        - label: 已评估技术可行性
+        - label: 无重复任务

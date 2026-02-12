@@ -1,0 +1,57 @@
+---
+name: Bug 报告
+description: 报告软件中的错误、崩溃或意外行为
+title: "[BUG] "
+labels: ["bug", "待审"]
+assignees: [kxrz123]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢报告 Bug！请尽量完整填写以下内容，便于快速定位和修复。
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug 描述
+      description: 发生了什么问题？
+      placeholder: 简洁描述
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 如何一步步触发这个问题？
+      value: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+  - type: textarea
+    id: expected-vs-actual
+    attributes:
+      label: 预期行为 vs 实际行为
+      value: |
+        **预期**：...
+        **实际**：...
+  - type: input
+    id: environment
+    attributes:
+      label: 环境信息
+      placeholder: OS / 浏览器 / 版本 / Node 版本 等
+  - type: textarea
+    id: attachments
+    attributes:
+      label: 截图/日志/附件
+      description: 拖拽上传错误日志、截图、视频等
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 严重程度
+      options:
+        - Critical（阻塞主流程）
+        - High（影响核心功能）
+        - Medium
+        - Low（ cosmetic / 边缘case）
+      default: 1
